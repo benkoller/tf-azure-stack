@@ -16,6 +16,10 @@ variable "safe_env" {
 resource "azurerm_resource_group" "rs_group" {
   name     = "${var.env_name}"
   location = "${var.location}"
+
+  tags {
+        environment = "${var.env_name}"
+    }
 }
 
 resource "azurerm_network_security_group" "sg" {
