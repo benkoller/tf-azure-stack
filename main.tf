@@ -137,7 +137,19 @@ resource "azurerm_lb_rule" "lb_rule_https" {
     frontend_ip_configuration_name = "PublicIPAddress"
 }
 
-# https nat
+# ssl lb
+
+resource "azurerm_lb_rule" "lb_rule_ssh" {
+    resource_group_name = "${azurerm_resource_group.rs_group.name}"
+    loadbalancer_id = "${azurerm_lb.lb.id}"
+    name = "ssh"
+    protocol = "Tcp"
+    frontend_port = 22
+    backend_port = 22
+    backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
+    probe_id = "${azurerm_lb_probe.lb-probe.id}"
+    frontend_ip_configuration_name = "PublicIPAddress"
+}
 
 # probes
 
