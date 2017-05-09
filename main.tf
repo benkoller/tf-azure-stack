@@ -191,8 +191,8 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
     os_profile {
         computer_name_prefix = "${var.env_name}"
         admin_username = "${var.ssh_user}"
-        admin_password = "${random_id.pw.hex}"
-        custom_data = "${ template_file.bootstrap.rendered }"
+        admin_password = "${var.ssh_pw}"
+        custom_data = "${var.user_data }"
     }
 
     os_profile_linux_config {
@@ -209,7 +209,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
         ip_configuration {
             name = "TestIPConfiguration"
-            subnet_id = "${var.snet-id}"
+            subnet_id = "${var.subnet_id}"
             load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.lb_pool.id}"]
         }
     }
@@ -248,4 +248,8 @@ resource "azurerm_availability_set" "av_set" {
         environment = "${var.env_name}"
     }
     
+}
+
+output "Public-IP of your Loadbalancer" {
+    value = "${azurerm_public_ip.lb_pip.ip_address}"
 }

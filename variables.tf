@@ -52,3 +52,8 @@ variable "ssh_user" {
     type = "string"
     description = "SSH user to use for the machines"
 }
+
+variable "ssh_pw" {
+    type = "string"
+    description = "SSH user password to use for the machines. Will be disabled anyhow and is purely cosmetic"
+}
