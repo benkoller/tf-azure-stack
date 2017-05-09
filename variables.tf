@@ -26,6 +26,11 @@ variable "subnet" {
     default = "127.16.0.0/12"
 }
 
+variable "subnet_id" {
+    type = "string"
+    description = "ID of the subnet-id to use. Example: /subscriptions/<<subscription-id>>/resourceGroups/<<resource group name>>/providers/Microsoft.Network/virtualNetworks/production/subnets/<<subnet name>>"
+}
+
 variable "remote_ip" {
     type = "string"
     description = "Specify the IP or Subnet you want to be able to ssh into the box from"
