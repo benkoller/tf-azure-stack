@@ -56,7 +56,7 @@ resource "azurerm_network_security_group" "sg" {
         protocol = "Tcp"
         source_port_range = "*"
         destination_port_range = "22"
-        source_address_prefix = "${var.remote-ip}"
+        source_address_prefix = "${var.remote_ip}"
         destination_address_prefix = "*"
         access = "Allow"
         priority = 2000

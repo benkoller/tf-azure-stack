@@ -26,7 +26,7 @@ variable "subnet" {
     default = "127.16.0.0/12"
 }
 
-variable "remote-ip" {
+variable "remote_ip" {
     type = "string"
     description = "Specify the IP or Subnet you want to be able to ssh into the box from"
 }
