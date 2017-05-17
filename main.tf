@@ -248,20 +248,6 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
     depends_on = ["azurerm_lb.lb", "azurerm_storage_container.storage_container"]
 }
 
-# - - - 
-# Availability Set
-
-resource "azurerm_availability_set" "av_set" {
-    name = "${var.env_name}set"
-    location = "${var.location}"
-    resource_group_name = "${azurerm_resource_group.rs_group.name}"
-
-    tags {
-        environment = "${var.env_name}"
-    }
-    
-}
-
 output "public_ip_address" {
     value = "${azurerm_public_ip.lb_pip.ip_address}"
 }
