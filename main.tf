@@ -153,12 +153,22 @@ resource "azurerm_lb_rule" "lb_rule_ssh" {
 
 # probes
 
-resource "azurerm_lb_probe" "lb-probe" {
+resource "azurerm_lb_probe" "lb-probe-port" {
+    count = "${var.use_port_probe}"
     resource_group_name = "${azurerm_resource_group.rs_group.name}"
     loadbalancer_id = "${azurerm_lb.lb.id}"
     protocol = "Tcp"
-    name = "dummycheck22"
-    port = 22
+    name = "probe${var.probe_port}"
+    port = "${var.probe_port}"
+    interval_in_seconds = 60
+}
+
+resource "azurerm_lb_probe" "lb-probe-http" {
+    resource_group_name = "${azurerm_resource_group.rs_group.name}"
+    loadbalancer_id = "${azurerm_lb.lb.id}"
+    protocol = "Http"
+    name = "probeHttp"
+    request_path = "${var.probe_url}"
     interval_in_seconds = 60
 }
 

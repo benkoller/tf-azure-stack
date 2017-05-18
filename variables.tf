@@ -62,3 +62,25 @@ variable "ssh_pw" {
     type = "string"
     description = "SSH user password to use for the machines. Will be disabled anyhow and is purely cosmetic"
 }
+
+variable "probe_port" {
+    description = "The port for your load balancer health probe"
+    default = "22"
+}
+
+variable "use_port_probe" {
+    description = "Set this to true if you want to have the load balancer us a port Probe"
+    default = true
+}
+
+variable "probe_url" {
+    type = "string"
+    description = "Specify a URL for the health probe to use"
+    default = "/"
+}
+
+variable "use_url_probe" {
+    description = "Set this to true if you want to have the load balancer us a http Probe"
+    default = false
+}
+
