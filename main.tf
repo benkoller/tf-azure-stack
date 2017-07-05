@@ -222,6 +222,7 @@ resource "azurerm_lb_probe" "lb-probe-http" {
     loadbalancer_id = "${azurerm_lb.lb.id}"
     protocol = "Http"
     name = "probeHttp"
+    port = "${var.probe_port}"
     request_path = "${var.probe_url}"
     interval_in_seconds = 60
 }
