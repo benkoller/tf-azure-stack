@@ -316,3 +316,15 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 output "public_ip_address" {
     value = "${azurerm_public_ip.lb_pip.ip_address}"
 }
+
+output "pip_id" {
+    value = "${azurerm_public_ip.lb_pip.id}"
+}
+
+output "resource_group_name" {
+    value = "${var.env_name}"
+}
+
+output "resource_group_id" {
+    value = "${azurerm_resource_group.rs_group.id}"
+}
