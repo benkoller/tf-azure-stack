@@ -123,7 +123,7 @@ resource "azurerm_lb_rule" "lb_rule_http_port" {
     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
     probe_id = "${azurerm_lb_probe.lb-probe-port.id}"
     frontend_ip_configuration_name = "PublicIPAddress"
-    load_distribution = "SourceIPProtocol"
+    # load_distribution = "SourceIPProtocol"
 }
 
 # https lb
@@ -139,7 +139,7 @@ resource "azurerm_lb_rule" "lb_rule_https_port" {
     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
     probe_id = "${azurerm_lb_probe.lb-probe-port.id}"
     frontend_ip_configuration_name = "PublicIPAddress"
-    load_distribution = "SourceIPProtocol"
+    # load_distribution = "SourceIPProtocol"
 }
 
 # ssl lb
@@ -172,7 +172,7 @@ resource "azurerm_lb_rule" "lb_rule_http_url" {
     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
     probe_id = "${azurerm_lb_probe.lb-probe-http.id}"
     frontend_ip_configuration_name = "PublicIPAddress"
-    load_distribution = "SourceIPProtocol"
+    # load_distribution = "SourceIPProtocol"
 }
 
 # https lb
@@ -188,7 +188,7 @@ resource "azurerm_lb_rule" "lb_rule_https_url" {
     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
     probe_id = "${azurerm_lb_probe.lb-probe-http.id}"
     frontend_ip_configuration_name = "PublicIPAddress"
-    load_distribution = "SourceIPProtocol"
+    # load_distribution = "SourceIPProtocol"
 }
 
 # ssl lb
