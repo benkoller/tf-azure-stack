@@ -142,18 +142,18 @@ resource "azurerm_lb_rule" "lb_rule_https_port" {
 
 # ssl lb
 
-resource "azurerm_lb_rule" "lb_rule_ssh_port" {
-    count = "${var.use_port_probe}"
-    resource_group_name = "${azurerm_resource_group.rs_group.name}"
-    loadbalancer_id = "${azurerm_lb.lb.id}"
-    name = "ssh"
-    protocol = "Tcp"
-    frontend_port = 22
-    backend_port = 22
-    backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
-    probe_id = "${azurerm_lb_probe.lb-probe-port.id}"
-    frontend_ip_configuration_name = "PublicIPAddress"
-}
+# resource "azurerm_lb_rule" "lb_rule_ssh_port" {
+#     count = "${var.use_port_probe}"
+#     resource_group_name = "${azurerm_resource_group.rs_group.name}"
+#     loadbalancer_id = "${azurerm_lb.lb.id}"
+#     name = "ssh"
+#     protocol = "Tcp"
+#     frontend_port = 22
+#     backend_port = 22
+#     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
+#     probe_id = "${azurerm_lb_probe.lb-probe-port.id}"
+#     frontend_ip_configuration_name = "PublicIPAddress"
+# }
 
 # Load balancer behaviour
 # URL-PROBE!
@@ -189,18 +189,18 @@ resource "azurerm_lb_rule" "lb_rule_https_url" {
 
 # ssl lb
 
-resource "azurerm_lb_rule" "lb_rule_ssh_url" {
-    count = "${var.use_url_probe}"
-    resource_group_name = "${azurerm_resource_group.rs_group.name}"
-    loadbalancer_id = "${azurerm_lb.lb.id}"
-    name = "ssh"
-    protocol = "Tcp"
-    frontend_port = 22
-    backend_port = 22
-    backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
-    probe_id = "${azurerm_lb_probe.lb-probe-http.id}"
-    frontend_ip_configuration_name = "PublicIPAddress"
-}
+# resource "azurerm_lb_rule" "lb_rule_ssh_url" {
+#     count = "${var.use_url_probe}"
+#     resource_group_name = "${azurerm_resource_group.rs_group.name}"
+#     loadbalancer_id = "${azurerm_lb.lb.id}"
+#     name = "ssh"
+#     protocol = "Tcp"
+#     frontend_port = 22
+#     backend_port = 22
+#     backend_address_pool_id = "${azurerm_lb_backend_address_pool.lb_pool.id}"
+#     probe_id = "${azurerm_lb_probe.lb-probe-http.id}"
+#     frontend_ip_configuration_name = "PublicIPAddress"
+# }
 
 
 # - - -
