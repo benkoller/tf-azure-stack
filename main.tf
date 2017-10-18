@@ -237,7 +237,8 @@ resource "azurerm_storage_account" "account" {
   name                = "${var.env_name}"
   resource_group_name = "${azurerm_resource_group.rs_group.name}"
   location            = "germanycentral"
-  account_type        = "Standard_LRS"
+  account_tier        = "Standard"
+  account_replication_type = "GRS"
 
   tags {
     environment = "${var.env_name}"
